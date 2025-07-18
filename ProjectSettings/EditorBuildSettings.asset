@@ -8,4 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Taufiq/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 96243e56bb4519641868e990b25787bd,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c1e8b54447152264080040027d15173a,
+      type: 2}
