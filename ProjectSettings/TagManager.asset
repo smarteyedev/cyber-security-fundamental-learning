@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Left Hand
+  - Right Hand
+  - Bullet
+  - ButtonTarget
+  - PanelAncamanTarget
+  - Environtmen
   layers:
   - Default
   - TransparentFX
