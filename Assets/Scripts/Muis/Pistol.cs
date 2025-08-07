@@ -96,24 +96,11 @@ public class Pistol : MonoBehaviour
     }
 
     // Memantau input mouse untuk menembak
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) // Klik kiri mouse
-            Shoot();
-    }
+    //void Update()
+    //{
+    //    if (Input.GetMouseButtonDown(0)) // Klik kiri mouse
+    //        Shoot();
+    //}
 
-    /* PENTING: Periksa dan pertimbangkan untuk menghapus bagian OnDestroy ini.
-     * Secara default, menghancurkan "Camera_Primary" saat pistol dihancurkan adalah perilaku yang sangat tidak biasa
-     * dan kemungkinan besar akan membuat kamera utama game Anda hilang, menyebabkan masalah.
-     * Umumnya, Anda tidak ingin skrip senjata mengelola kamera utama.
-    void OnDestroy()
-    {
-        var cam = GameObject.Find("Camera_Primary");
-        if (cam != null)
-        {
-            Destroy(cam);
-            Debug.Log("🧹 Camera_Primary dibersihkan saat pistol dihancurkan.");
-        }
-    }
-    */
+   
 }

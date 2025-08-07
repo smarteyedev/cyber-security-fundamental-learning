@@ -120,6 +120,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   targetTag: Enemy
+  buttonTag: ButtonTarget
+  finalButtonTag: FinalButton
+  sceneToLoadName: NamaSceneTujuan
+  target: Environtmen
 --- !u!54 &7899850321510877999
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -166,5 +170,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.01145919
-  m_Center: {x: -4.656613e-10, y: 3.277766e-10, z: 0.00079267094}
+  m_Radius: 0.0042541306
+  m_Center: {x: 0.0038856003, y: 0, z: 0.009626771}

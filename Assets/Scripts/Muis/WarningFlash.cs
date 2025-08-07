@@ -1,22 +1,22 @@
-﻿using UnityEngine;
+﻿// File: WarningFlash.cs
+using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
 [RequireComponent(typeof(CanvasGroup))]
-[RequireComponent(typeof(AudioSource))] // Menjamin AudioSource ada
+[RequireComponent(typeof(AudioSource))]
 public class WarningFlash : MonoBehaviour
 {
     [Header("🔴 Referensi CanvasGroup Panel Warning")]
     public CanvasGroup panelGroup;
 
     [Header("🔊 Suara Flash")]
-    [Tooltip("Seret AudioClip untuk suara saat flash dimulai.")]
     public AudioClip suaraFlash;
     private AudioSource sumberSuara;
 
     [Header("✨ Pengaturan Alpha")]
     [Range(0f, 1f)] public float alphaFlash = 0.4f;
-    [Range(0f, 1f)] public float alphaHide = 0f;
+    [Range(0f, 1f)] public float alphaHide = 1f;
 
     [Header("🕒 Durasi & Pengulangan")]
     public float durasiFadeIn = 0.15f;
@@ -45,10 +45,9 @@ public class WarningFlash : MonoBehaviour
         panelGroup.blocksRaycasts = false;
         panelGroup.interactable = false;
 
-        // Inisialisasi AudioSource
         sumberSuara = GetComponent<AudioSource>();
         sumberSuara.playOnAwake = false;
-        sumberSuara.spatialBlend = 0f; // non-spatial untuk UI
+        sumberSuara.spatialBlend = 0f;
     }
 
     void Start()
@@ -64,7 +63,6 @@ public class WarningFlash : MonoBehaviour
         panelGroup.blocksRaycasts = true;
         panelGroup.interactable = true;
 
-        // 🔊 Putar suara jika tersedia
         if (suaraFlash != null && sumberSuara != null)
         {
             sumberSuara.clip = suaraFlash;
