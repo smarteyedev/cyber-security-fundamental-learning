@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Right Hand
+  - Left Hand
+  - Kotak1
+  - Kotak2
+  - Kotak3
+  - Kotak4
+  - PecahanRubikKananAtas
   layers:
   - Default
   - TransparentFX
