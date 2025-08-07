@@ -4,13 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Right Hand
+  - Enemy
   - Left Hand
-  - Kotak1
-  - Kotak2
-  - Kotak3
-  - Kotak4
-  - PecahanRubikKananAtas
+  - Right Hand
+  - Bullet
+  - ButtonTarget
+  - PanelAncamanTarget
+  - Environtmen
+  - FinalButton
   layers:
   - Default
   - TransparentFX
