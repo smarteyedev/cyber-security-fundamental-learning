@@ -1677,8 +1677,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoData:
     videoTitleText: 
-    videoClip: {fileID: 0}
-    thumbnailSprite: {fileID: 0}
+    videoClip: {fileID: 32900000, guid: ab4625576189fd7439dc9b6429e5edfb, type: 3}
+    thumbnailSprite: {fileID: 21300000, guid: cc03d3201bf61b34f9424fb790381967, type: 3}
     isWatched: 0
   playOnStart: 0
   UnityEvents:
