@@ -14,13 +14,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Candra/MekanikPuzzle/PuzzleMekanik.unity
     guid: e442389477ba9494890925455df3bbc3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Muis/SceneSerangan.unity
     guid: 5ca81d0bdb903d64da5776e0f7471e9a
   - enabled: 0
     path: Assets/Scenes/Candra/MekanikInputCode/InputCodeMekanik.unity
     guid: 9ddf4b60a4690c24b831ef70f655fa54
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Candra/MekanikTombol/MekanikTombol.unity
     guid: 45f155f102be9ba4ea08918acb8e14b0
   m_configObjects:
