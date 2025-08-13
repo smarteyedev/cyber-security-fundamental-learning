@@ -33,12 +33,12 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 256
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.008057237, g: 0.029799499, b: 0.15440841, a: 1}
+  m_IndirectSpecularColor: {r: 0.008057263, g: 0.029799582, b: 0.15440989, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20323,6 +20323,7 @@ Transform:
   - {fileID: 643492658}
   - {fileID: 1789925435}
   - {fileID: 392162540}
+  - {fileID: 1165706058}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &811439340
@@ -22844,7 +22845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1165706056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22879,8 +22880,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.59496254, g: 0.83760875, b: 0.990566, a: 1}
+  m_Intensity: 0.15
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -22919,7 +22920,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -22943,7 +22944,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 801143129}
   m_LocalEulerAnglesHint: {x: 115.5, y: 5.78, z: 0}
 --- !u!1 &1171589322
 GameObject:
@@ -24561,7 +24562,7 @@ PrefabInstance:
     - target: {fileID: -2689064491794699132, guid: 4f82b154318662f4dadfce375009130c,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1599826595754709761, guid: 4f82b154318662f4dadfce375009130c,
         type: 3}
@@ -43853,8 +43854,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -80014,5 +80015,4 @@ SceneRoots:
   - {fileID: 1423942456}
   - {fileID: 1352478267}
   - {fileID: 1365153875}
-  - {fileID: 1165706058}
   - {fileID: 801143129}

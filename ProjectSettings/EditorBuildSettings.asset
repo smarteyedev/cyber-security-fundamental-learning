@@ -11,15 +11,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Muis/sceneShooter.unity
     guid: 9ef7cb76faa3a0548b579b3a819b9d7f
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/Candra/MekanikPuzzle/PuzzleMekanik.unity
+    guid: e442389477ba9494890925455df3bbc3
+  - enabled: 0
     path: Assets/Scenes/Muis/SceneSerangan.unity
     guid: 5ca81d0bdb903d64da5776e0f7471e9a
   - enabled: 0
-    path: Assets/Scenes/Candra/Ending/EndingScene.unity
-    guid: ceb8049ea00632a4e8b41aa939ea5aac
-  - enabled: 0
-    path: Assets/AutoHand/Examples/Scenes/OpenXR/Demo.unity
-    guid: 1551acbe06158c74e8ab2f58f9b373dc
+    path: Assets/Scenes/Candra/MekanikInputCode/InputCodeMekanik.unity
+    guid: 9ddf4b60a4690c24b831ef70f655fa54
+  - enabled: 1
+    path: Assets/Scenes/Candra/MekanikTombol/MekanikTombol.unity
+    guid: 45f155f102be9ba4ea08918acb8e14b0
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 96243e56bb4519641868e990b25787bd,
       type: 2}
