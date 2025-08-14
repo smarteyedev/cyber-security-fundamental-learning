@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Candra/MekanikPuzzle/PuzzleMekanik.unity
     guid: e442389477ba9494890925455df3bbc3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Muis/SceneSerangan.unity
     guid: 5ca81d0bdb903d64da5776e0f7471e9a
   - enabled: 0
