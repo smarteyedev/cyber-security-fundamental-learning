@@ -233,12 +233,12 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: EK_Pallete
-    second: {fileID: 2800000, guid: a0474ed9e02f10b46b050d89a87568f2, type: 3}
+    second: {fileID: 2800000, guid: 2cf90b9da4acb214391036efb54c33e4, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: ijoo
-    second: {fileID: 2800000, guid: a2a0c0995a4090644a8fe581928ffbeb, type: 3}
+    second: {fileID: 2800000, guid: 05bda0d04ef38164a9960277ff87739d, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -296,12 +296,12 @@ ModelImporter:
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
+    secondaryUVMarginMethod: 0
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
-    secondaryUVPackMargin: 4
+    secondaryUVPackMargin: 19
     useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
