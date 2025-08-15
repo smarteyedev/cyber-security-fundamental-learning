@@ -3,7 +3,107 @@ guid: 0c8f129e9754a3249b13e033b737d9b5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BIRU MUDA
+    second: {fileID: 2100000, guid: 5314bed0620e1b64caa05beb678b2e5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: dfc8b574d5ccf074ca0f2253174346c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 989c164531213404fb0a95c6c96ea772, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: 97a41f7dd1536ce46b7d2d3fc58d0bc9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: c1ffefa02afdaea4f8e950068a3ead62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muzzle_material.001
+    second: {fileID: 2100000, guid: 0dd774cd90168eb4f851196bee69473d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muzzle_material.003
+    second: {fileID: 2100000, guid: df3a3bf6679b27340a8b077cccd6318e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muzzle_material.006
+    second: {fileID: 2100000, guid: 1d38753409c83624ea31a2bdcbe9c69c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: badan teksture
+    second: {fileID: 2100000, guid: 3772ec79178524f4282062db0dcec598, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: biru.005
+    second: {fileID: 2100000, guid: 2a14a64fe900ca7468f86dd0e3f6ab88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gigi
+    second: {fileID: 2100000, guid: 6a4225eb47204c148920091b5bef144a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jaket.001
+    second: {fileID: 2100000, guid: 7da497a11cb35764592a19939d67db07, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pupil.001
+    second: {fileID: 2100000, guid: 3b0457966deada34fada9bbc9c99c5cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pupil.003
+    second: {fileID: 2100000, guid: 498d0794bbe63ba43b273561e577492b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: putih
+    second: {fileID: 2100000, guid: 58cc2bab58333eb4e80971239883fc36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: putih.002
+    second: {fileID: 2100000, guid: d6ddd807df0d709449410e290b5637b2, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fabric-70-black_diffuse
+    second: {fileID: 2800000, guid: 3c68c1d5a40bad84fa265ad50c0c61a0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fabric-70_roughness
+    second: {fileID: 2800000, guid: b2bc666ccf41040489366968b5ec9eef, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ornamen gradasi 2
+    second: {fileID: 2800000, guid: fc1e11f02e6ae1047b3bc2e80b2e1f7e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: teksture badannnn
+    second: {fileID: 2800000, guid: 551c71022121dbc43b007f6d4984a274, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

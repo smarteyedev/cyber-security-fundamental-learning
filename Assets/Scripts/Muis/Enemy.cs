@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
-    
+
     private EnemyManager manager;
+
+    private Tween m_scaleTween;
 
     void Start()
     {
@@ -12,6 +15,8 @@ public class Enemy : MonoBehaviour
         {
             Debug.LogError("[Enemy.cs] ERROR: EnemyManager tidak ditemukan di scene!");
         }
+
+        ScaleAnimation();
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,7 +30,15 @@ public class Enemy : MonoBehaviour
                 manager.EnemyDefeated();// ✅ pastikan ini sesuai dengan yang di EnemyManager
             }
 
+            m_scaleTween.Kill();
             Destroy(gameObject);
         }
+    }
+
+    private void ScaleAnimation()
+    {
+        m_scaleTween = transform.DOScale(1f * 1.3f, .5f)
+                        .SetLoops(-1, LoopType.Yoyo)
+                        .SetEase(Ease.InOutSine);
     }
 }

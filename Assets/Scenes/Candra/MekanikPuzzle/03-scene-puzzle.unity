@@ -35822,7 +35822,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2083249587}
         m_TargetAssemblyTypeName: Smarteye.VR.Training.CyberSecurity.Manager.EnvironmentLevelManager,
           Assembly-CSharp
-        m_MethodName: GotoNextScene
+        m_MethodName: GotoNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -42846,8 +42846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f449798a50d5184090366741aac8dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIdentitiy: 2
   gameDatas: {fileID: 11400000, guid: 3f279d57dc115184a9f93d4510431102, type: 2}
+  playerCharacter: {fileID: 0}
 --- !u!1 &2084087536
 GameObject:
   m_ObjectHideFlags: 0
