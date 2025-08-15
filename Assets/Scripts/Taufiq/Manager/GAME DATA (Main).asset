@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9c5a26ef2b7d447b15692ba4d2e249, type: 3}
+  m_Name: GAME DATA (Main)
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  gameLevelDatas:
+  - levelName: 0
+    levelScene:
+      _sceneAsset: {fileID: 102900000, guid: baafa28f110998b4ea8ab108585bcda2, type: 3}
+      _sceneName: 01-scene-opening-and-ending
+  - levelName: 1
+    levelScene:
+      _sceneAsset: {fileID: 102900000, guid: 9ef7cb76faa3a0548b579b3a819b9d7f, type: 3}
+      _sceneName: 02-scene-shooter
+  - levelName: 2
+    levelScene:
+      _sceneAsset: {fileID: 102900000, guid: e442389477ba9494890925455df3bbc3, type: 3}
+      _sceneName: 03-scene-puzzle
+  - levelName: 3
+    levelScene:
+      _sceneAsset: {fileID: 102900000, guid: 5ca81d0bdb903d64da5776e0f7471e9a, type: 3}
+      _sceneName: 04-scene-serangan
+  - levelName: 4
+    levelScene:
+      _sceneAsset: {fileID: 102900000, guid: 45f155f102be9ba4ea08918acb8e14b0, type: 3}
+      _sceneName: 05-scene-user-input
+  - levelName: 5
+    levelScene:
+      _sceneAsset: {fileID: 102900000, guid: baafa28f110998b4ea8ab108585bcda2, type: 3}
+      _sceneName: 01-scene-opening-and-ending

@@ -6,14 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Muis/SceneMenu.unity
+    path: Assets/Scenes/Muis/01-scene-opening-and-ending.unity
     guid: baafa28f110998b4ea8ab108585bcda2
   - enabled: 1
-    path: Assets/Scenes/Muis/sceneShooter.unity
+    path: Assets/Scenes/Muis/02-scene-shooter.unity
     guid: 9ef7cb76faa3a0548b579b3a819b9d7f
   - enabled: 1
-    path: Assets/Scenes/Muis/SceneSerangan.unity
+    path: Assets/Scenes/Candra/MekanikPuzzle/03-scene-puzzle.unity
+    guid: e442389477ba9494890925455df3bbc3
+  - enabled: 1
+    path: Assets/Scenes/Muis/04-scene-serangan.unity
     guid: 5ca81d0bdb903d64da5776e0f7471e9a
+  - enabled: 0
+    path: Assets/Scenes/Candra/MekanikInputCode/InputCodeMekanik.unity
+    guid: 9ddf4b60a4690c24b831ef70f655fa54
+  - enabled: 1
+    path: Assets/Scenes/Candra/MekanikTombol/05-scene-user-input.unity
+    guid: 45f155f102be9ba4ea08918acb8e14b0
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 96243e56bb4519641868e990b25787bd,
       type: 2}

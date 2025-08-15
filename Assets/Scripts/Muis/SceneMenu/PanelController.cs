@@ -59,25 +59,16 @@ public class PanelController : MonoBehaviour
 
 
     void Awake()
-
     {
-
-        // Subscribe ke event dari setiap enemy tutorial
-
-        EnemyTutorial.OnEnemyDefeated += HandleEnemyDefeated;
-
+        // Subscribe ke event dari setiap enemy tutorial
+        EnemyTutorial.OnEnemyDefeated += HandleEnemyDefeated;
     }
 
 
-
     void OnDestroy()
-
     {
-
-        // Unsubscribe dari event saat skrip dihancurkan
-
-        EnemyTutorial.OnEnemyDefeated -= HandleEnemyDefeated;
-
+        // Unsubscribe dari event saat skrip dihancurkan
+        EnemyTutorial.OnEnemyDefeated -= HandleEnemyDefeated;
     }
 
 
@@ -197,169 +188,91 @@ public class PanelController : MonoBehaviour
 
 
     void ActivatePanel(GameObject panel)
-
     {
-
         Debug.Log($">> Mengaktifkan panel: {panel.name}");
 
-
-
         foreach (GameObject p in allPanels)
-
         {
-
             p.SetActive(false);
-
         }
-
-
 
         panel.SetActive(true);
 
-
-
         if (panel == panelTembak)
-
         {
-
             tembakPanelActive = true;
-
             defeatedEnemiesCount = 0;
 
-
-
             GameObject[] allEnemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
-
-            totalEnemiesInTembakPanel = allEnemyObjects
-
-                              .Count(obj => obj.GetComponent<EnemyTutorial>() != null);
-
-
+            totalEnemiesInTembakPanel = allEnemyObjects.Count(obj => obj.GetComponent<EnemyTutorial>() != null);
 
             if (totalEnemiesInTembakPanel == 0)
-
             {
-
                 Debug.LogWarning("PanelController: Tidak ada enemy yang ditemukan dengan tag 'Enemy' dan skrip 'EnemyTutorial' saat Panel Tembak aktif.");
-
             }
-
             else
-
             {
-
                 Debug.Log($"PanelController: {totalEnemiesInTembakPanel} enemy terdeteksi untuk dikalahkan di Panel Tembak.");
-
             }
-
         }
-
         else
-
         {
-
             tembakPanelActive = false;
-
         }
-
-
 
         UpdatePanelSpecificElements();
-
     }
 
 
 
     void UpdatePanelSpecificElements()
-
     {
-
         if (pistol != null)
-
         {
+            // Pistol aktif hanya di panel Tutorial (sebelum diambil) atau di panel Tembak.
 
-            // Pistol aktif hanya di panel Tutorial (sebelum diambil) atau di panel Tembak.
-
-            if ((allPanels[currentPanelIndex] == panelTutorial && !pistolSudahDiambil) ||
-
-        (allPanels[currentPanelIndex] == panelTembak))
-
+            if ((allPanels[currentPanelIndex] == panelTutorial && !pistolSudahDiambil) ||
+                    (allPanels[currentPanelIndex] == panelTembak))
             {
-
                 pistol.SetActive(true);
-
                 Debug.Log("Pistol aktif di panel tutorial atau panel tembak.");
-
             }
-
             else
-
             {
-
                 pistol.SetActive(false);
-
                 Debug.Log("Pistol tidak aktif.");
-
             }
-
         }
-
-
 
         if (panelPickupNotifier != null)
-
         {
-
             panelPickupNotifier.SetActive(allPanels[currentPanelIndex] == panelTutorial && !pistolSudahDiambil);
-
         }
-
-
 
         if (imageDiPanelTembak != null)
-
         {
-
             imageDiPanelTembak.SetActive(allPanels[currentPanelIndex] == panelTembak);
-
         }
-
     }
 
 
 
     public void OnPistolGrabbed()
-
     {
-
         Debug.Log(">> OnPistolGrabbed() called");
 
-
-
         if (!pistolSudahDiambil)
-
         {
-
             pistolSudahDiambil = true;
 
-
-
             if (panelPickupNotifier != null)
-
             {
-
                 panelPickupNotifier.SetActive(false);
-
             }
-
-
 
             Debug.Log(">> Immediately transitioning to 'Tembak' panel after pistol grabbed.");
 
             GoToPanel(panelTembak);
-
         }
-
     }
-
 }
