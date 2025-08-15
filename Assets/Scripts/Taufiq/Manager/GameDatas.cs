@@ -9,14 +9,20 @@ namespace Smarteye.VR.Training.CyberSecurity.Manager
     // [CreateAssetMenu(fileName = "New Game Data", menuName = "Game Data/Game Data")]
     public class GameDatas : ScriptableObject
     {
-        public LevelIdentity currentLevel;
-        public List<LevelData> gameLevelDatas;
+        [SerializeField] private LevelIdentity currentLevel;
+        [SerializeField] private List<LevelData> gameLevelDatas;
 
         [System.Serializable]
         public class LevelData
         {
             public LevelIdentity levelName;
             public SceneField levelScene;
+        }
+
+        public LevelIdentity currentGameLevel
+        {
+            get => currentLevel;
+            set => currentLevel = value;
         }
 
         public bool TryGetNextScene(out SceneField scene, bool loop = false)
@@ -43,6 +49,6 @@ namespace Smarteye.VR.Training.CyberSecurity.Manager
 
     public enum LevelIdentity
     {
-        Opening, Level1, Level2, Level3, Level4, Ending
+        Opening = 0, Level1 = 1, Level2 = 2, Level3 = 3, Level4 = 4, Ending = 5
     }
 }
