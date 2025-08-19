@@ -41514,11 +41514,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4310951729756355775, guid: c8171c714ac2cf740a7f319a7f5fac4b,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7606886268832520397, guid: c8171c714ac2cf740a7f319a7f5fac4b,
         type: 3}
       propertyPath: duration
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7606886268832520397, guid: c8171c714ac2cf740a7f319a7f5fac4b,
+        type: 3}
+      propertyPath: fadeCanvas
+      value: 
+      objectReference: {fileID: 1995725093}
     - target: {fileID: 7606886268832520397, guid: c8171c714ac2cf740a7f319a7f5fac4b,
         type: 3}
       propertyPath: isPlayOnStart
@@ -41537,6 +41547,12 @@ PrefabInstance:
 --- !u!224 &1995725092 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 75576566285518016, guid: c8171c714ac2cf740a7f319a7f5fac4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1995725091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1995725093 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4310882629617055498, guid: c8171c714ac2cf740a7f319a7f5fac4b,
     type: 3}
   m_PrefabInstance: {fileID: 1995725091}
   m_PrefabAsset: {fileID: 0}

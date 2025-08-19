@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using Smarteye.Character.Behaviour;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -22,10 +23,7 @@ public class EnemyManager : MonoBehaviour
 
     // --- Referensi ke komponen UI untuk flash ---
     [Header("⚡️ Warning Flash")]
-    public Image warningFlash;
-    public float flashDuration = 0.3f;
-    public float flashInterval = 0.3f;
-    private Coroutine flashRoutine;
+    [SerializeField] private FadeScreen fadeScreen;
 
     // ----- Manajemen Musuh -----
     [Header("👾 Enemy Management")]
@@ -320,67 +318,19 @@ public class EnemyManager : MonoBehaviour
         return 0;
     }
 
-    // Metode untuk Flash Warning tidak perlu diubah, kodenya sudah baik
-    IEnumerator FlashWarning()
-    {
-        if (warningFlash == null)
-        {
-            yield break;
-        }
-
-        Color originalColor = warningFlash.color;
-        warningFlash.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
-
-        while (true)
-        {
-            float timer = 0f;
-            while (timer < flashDuration)
-            {
-                float alpha = Mathf.Lerp(0f, 1f, timer / flashDuration);
-                warningFlash.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
-                timer += Time.deltaTime;
-                yield return null;
-            }
-            warningFlash.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1f);
-
-            timer = 0f;
-            while (timer < flashDuration)
-            {
-                float alpha = Mathf.Lerp(1f, 0f, timer / flashDuration);
-                warningFlash.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
-                timer += Time.deltaTime;
-                yield return null;
-            }
-            warningFlash.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
-
-            yield return new WaitForSeconds(flashInterval);
-        }
-    }
-
     public void StartWarningFlash()
     {
-        if (warningFlash != null)
+        if (fadeScreen != null)
         {
-            if (flashRoutine != null)
-            {
-                StopCoroutine(flashRoutine);
-            }
-            warningFlash.gameObject.SetActive(true);
-            flashRoutine = StartCoroutine(FlashWarning());
+            fadeScreen.StartEffectSOS(Color.red);
         }
     }
 
     public void StopWarningFlash()
     {
-        if (flashRoutine != null)
+        if (fadeScreen != null)
         {
-            StopCoroutine(flashRoutine);
-            flashRoutine = null;
-        }
-        if (warningFlash != null)
-        {
-            warningFlash.color = new Color(warningFlash.color.r, warningFlash.color.g, warningFlash.color.b, 0f);
-            warningFlash.gameObject.SetActive(false);
+            fadeScreen.StopEffectSOS();
         }
     }
 }

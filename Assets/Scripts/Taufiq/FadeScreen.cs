@@ -1,22 +1,30 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI; // penting untuk akses Image
-using DG.Tweening;    // penting untuk DOTween
+using DG.Tweening;
+using System;    // penting untuk DOTween
 
 namespace Smarteye.Character.Behaviour
 {
     public class FadeScreen : MonoBehaviour
     {
-        public Image targetImage;             // Image yang akan di-fade
-        public AnimationCurve fadeCurve;      // Kurva untuk ease kustom
         public float duration = 1.0f;
         public bool isPlayOnStart = false;
+
+        [Space(5)]
+        [Header("References")]
+        [SerializeField] private Canvas fadeCanvas;
+        [SerializeField] private Image targetImage;
+        [SerializeField] private AnimationCurve fadeCurve;
 
         [Space(5)]
         [Header("Event")]
         [Space(2)]
         public UnityEvent OnFadeScreenOut;
         public UnityEvent OnFadeScreenIn;
+
+
+        private Tweener m_SOSTween;
 
         private void Awake()
         {
@@ -36,42 +44,66 @@ namespace Smarteye.Character.Behaviour
         }
 
         // Memulai fade in animation
-        public void FadeInScreen()
-        {
-            if (targetImage == null) return;
-
-            targetImage
-                .DOFade(1f, duration)
-                .SetEase(fadeCurve)
-                .OnComplete(OnFadeInComplete);
-        }
-
-        // Memulai fade out animation
-        public void FadeOutScreen(Color imgColor)
+        public void FadeInScreen(Color imgColor, Action _onFadeInComplete = null)
         {
             if (targetImage == null) return;
 
             targetImage.color = imgColor;
 
+            targetImage
+                .DOFade(1f, duration)
+                .SetEase(fadeCurve)
+                .OnComplete(() =>
+                {
+                    OnFadeScreenIn?.Invoke();
+                    _onFadeInComplete?.Invoke();
+                });
+        }
+
+        // Memulai fade out animation
+        public void FadeOutScreen(Color imgColor, Action _onFadeOutComplete = null)
+        {
+            if (targetImage == null) return;
+
+            targetImage.color = imgColor;
+            fadeCanvas.sortingOrder = 9;
+
             // Membuat tween alpha dengan DOTween
             targetImage
                 .DOFade(0f, duration)
                 .SetEase(fadeCurve) // ease custom dari AnimationCurve
-                .OnComplete(OnFadeOutComplete);
+                .OnComplete(() =>
+                {
+                    OnFadeScreenOut?.Invoke();
+                    _onFadeOutComplete?.Invoke();
+                });
         }
 
-        // Callback saat fade out selesai
-        private void OnFadeOutComplete()
+        public void StartEffectSOS(Color _imgColor)
         {
-            Debug.Log("Fade Out Complete");
-            OnFadeScreenOut?.Invoke();
+            m_SOSTween?.Kill();
+            fadeCanvas.sortingOrder = -1;
+
+            targetImage.color = _imgColor;
+            var c = targetImage.color;
+            c.a = 0f;
+            targetImage.color = c;
+
+            m_SOSTween = targetImage
+                        .DOFade(.5f, 0.5f)
+                        .SetDelay(0f)
+                        .SetEase(Ease.InOutSine)
+                        .SetLoops(-1, LoopType.Yoyo)
+                        .SetAutoKill(false);
+            // .SetUpdate(true);
         }
 
-        // Callback saat fade in selesai
-        private void OnFadeInComplete()
+        public void StopEffectSOS()
         {
-            Debug.Log("Fade In Complete");
-            OnFadeScreenIn?.Invoke();
+            m_SOSTween?.Kill();
+            m_SOSTween = null;
+
+            targetImage.color = new Color(0f, 0f, 0f, 0f);
         }
     }
 }
