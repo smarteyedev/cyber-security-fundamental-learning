@@ -4,6 +4,8 @@ using Autohand;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+using Smarteye.VR.Training.CyberSecurity.Manager;
 
 [System.Serializable]
 public class PuzzlePair
@@ -24,14 +26,8 @@ public class PuzzleController : MonoBehaviour
     [Header("Material Feedback")]
     public Material correctMaterial;
 
-    [Header("Panel Final")]
-    public GameObject panelPesanFinal;
-
-    [Header("Komponen Video")]
-    public VideoPlayer videoPlayer;
-
-    [Header("Panel UI Kemenangan")]
-    public GameObject panelKemenangan;
+    /*     [Header("Panel UI Kemenangan")]
+        public GameObject panelKemenangan; */
 
     [Header("Pengaturan Pop-up Selesai")]
     public GameObject successPopupObject;
@@ -40,11 +36,24 @@ public class PuzzleController : MonoBehaviour
     [Header("Pasangan Puzzle")]
     public PuzzlePair[] puzzlePairs;
 
+    [Header("Panel Final")]
+    public GameObject panelPesanFinal;
+    public VideoPlayer videoPlayer;
+    public GameObject videoImgRenderer;
+    [SerializeField] private EnvironmentLevelManager levelManager;
+    [SerializeField] private TextMeshProUGUI text_Countdown;
+    private int countdownTime = 10;
+
     private Dictionary<PlacePoint, PuzzlePair> placePointMap;
     private Dictionary<GameObject, Material> originalMaterials;
     private bool isCompleting = false;
 
     void Start()
+    {
+
+    }
+
+    public void StartPuzzleMechanic()
     {
         placePointMap = new Dictionary<PlacePoint, PuzzlePair>();
         originalMaterials = new Dictionary<GameObject, Material>();
@@ -66,7 +75,7 @@ public class PuzzleController : MonoBehaviour
             pair.isPlaced = false;
         }
 
-        if (panelKemenangan != null) panelKemenangan.SetActive(false);
+        // if (panelKemenangan != null) panelKemenangan.SetActive(false);
         if (panelPesanFinal != null) panelPesanFinal.SetActive(false);
         if (successPopupObject != null) successPopupObject.SetActive(false);
         if (videoPlayer != null) videoPlayer.loopPointReached += OnVideoFinished;
@@ -113,7 +122,7 @@ public class PuzzleController : MonoBehaviour
                 removedRenderer.materials = previewRenderer.materials;
         }
 
-        if (panelKemenangan != null) panelKemenangan.SetActive(false);
+        // if (panelKemenangan != null) panelKemenangan.SetActive(false);
         if (panelPesanFinal != null) panelPesanFinal.SetActive(false);
         if (successPopupObject != null) successPopupObject.SetActive(false);
         if (videoPlayer != null) videoPlayer.Stop();
@@ -154,42 +163,45 @@ public class PuzzleController : MonoBehaviour
 
     IEnumerator FinalCompletionSequence()
     {
-        Debug.Log("🎉 PUZZLE SELESAI SEMUA! 🎉");
+        Debug.Log("PUZZLE SELESAI SEMUA!");
+
+        videoPlayer.gameObject.SetActive(true);
+        videoImgRenderer.SetActive(false);
 
         if (successPopupObject != null)
             successPopupObject.SetActive(true);
 
+        videoPlayer.Prepare();
+
+        yield return new WaitUntil(() => videoPlayer.isPrepared);
         yield return new WaitForSeconds(popupDuration);
 
         if (successPopupObject != null)
             successPopupObject.SetActive(false);
 
-        // Sembunyikan semua sisa puzzle (PlacePoint dan Preview)
+        // Sembunyikan sisa puzzle
         foreach (var pair in puzzlePairs)
         {
-            if (pair.placePoint != null)
-                pair.placePoint.gameObject.SetActive(false);
-        }
-
-        if (panelKemenangan != null)
-            panelKemenangan.SetActive(true);
-        if (videoPlayer != null)
-            videoPlayer.Play();
-
-        // Nonaktifkan semua potongan (yang sudah terpasang) agar tidak bisa di-grab lagi
-        foreach (var pair in puzzlePairs)
-        {
-            if (pair.placePoint.placedObject != null)
+            if (pair.placePoint) pair.placePoint.gameObject.SetActive(false);
+            if (pair.placePoint && pair.placePoint.placedObject)
                 pair.placePoint.placedObject.enabled = false;
         }
 
-        this.enabled = false;
+        // Tampilkan permukaan video dan mulai play
+        videoImgRenderer.SetActive(true);
+        // (Opsional) yield satu frame agar RenderTexture sempat terisi
+        yield return null;
+        videoPlayer.Play();
     }
 
     void OnVideoFinished(VideoPlayer vp)
     {
-        if (panelKemenangan != null) panelKemenangan.SetActive(false);
+        // if (panelKemenangan != null) panelKemenangan.SetActive(false);
+
+        videoPlayer.transform.gameObject.SetActive(false);
         if (panelPesanFinal != null) panelPesanFinal.SetActive(true);
+
+        StartCoroutine(CountdownToNextStage());
     }
 
     void OnDestroy()
@@ -204,5 +216,22 @@ public class PuzzleController : MonoBehaviour
             if (pair.previewObject != null)
                 pair.previewObject.SetActive(!pair.isPlaced);
         }
+    }
+
+    IEnumerator CountdownToNextStage()
+    {
+        int timeLeft = countdownTime;
+
+        while (timeLeft > 0)
+        {
+            text_Countdown.text = $"Otomatis lanjut ke tahap selanjutnya dalam {timeLeft.ToString()} detik...";
+            yield return new WaitForSeconds(1f);
+            timeLeft--;
+        }
+
+        text_Countdown.text = $"Otomatis lanjut ke tahap selanjutnya dalam 0 detik...";
+        yield return new WaitForSeconds(.5f);
+
+        levelManager.GotoNextLevel();
     }
 }
