@@ -3,7 +3,27 @@ guid: 7069fcc544c260049b446ba2197a50df
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: b7c50986d1142a042a58b4b4ea3c0356, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RedDOve
+    second: {fileID: 2100000, guid: 15e5a3f2878c7da4c8a0eb9d0a994816, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Silver1
+    second: {fileID: 2100000, guid: 8f94db936cbcd4948b3784d79b3f64b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SilverKuning1
+    second: {fileID: 2100000, guid: ae0184c654ace0341aead2e96d78ec36, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

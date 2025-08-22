@@ -56,11 +56,11 @@ public class Tombol3DHandler : MonoBehaviour
 
         if (adalahTombolMerah)
         {
-            alurGameController.TekanTombolMerah();
+            // alurGameController.TekanTombolMerah();
         }
         else
         {
-            alurGameController.TekanTombolBiru();
+            // alurGameController.TekanTombolBiru();
         }
     }
     #endregion
