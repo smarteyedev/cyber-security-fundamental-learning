@@ -1,5 +1,10 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+using System.Linq;
+using Unity.VisualScripting;
+using System.Threading.Tasks;
 
 public class AlurGameController : MonoBehaviour
 {
@@ -24,10 +29,32 @@ public class AlurGameController : MonoBehaviour
 
     // ! End: Old References
 
+    [Header("Configuration")]
+    public List<ContentSection> contentConfiguration;
+
     public enum OptionId
     {
         NONE = 0, OPTION_A = 1, OPTION_B = 2
     }
+
+    [Serializable]
+    public class ContentSection
+    {
+        public GameObject mainPanel;
+
+        [Header("Post Effect")]
+        public List<PostEffect> postEffectByAnser;
+
+        [Serializable]
+        public class PostEffect
+        {
+            public OptionId answerOptionTarget;
+            public UnityEvent onAnsweredEvent;
+        }
+    }
+
+    private List<GameObject> m_tempPanelActive = new List<GameObject>();
+    private int m_currentSectionId = 0;
 
     void Start()
     {
@@ -46,7 +73,8 @@ public class AlurGameController : MonoBehaviour
         popupKerenKataSandiAman.SetActive(false); */
         // ! End: Old Function
 
-
+        GameObject tg = contentConfiguration[0].mainPanel;
+        ChangePanel(contentConfiguration[0].mainPanel);
     }
 
     // ! Start: Old Function
@@ -133,9 +161,85 @@ public class AlurGameController : MonoBehaviour
 
     // ! End: Old Function
 
-    public void OptionSelected(int _optionId)
+    /// <summary>
+    /// menjalankan unity event pada section,
+    /// sebagai post effect setelah player menjawab
+    /// </summary>
+    /// <param name="_optionId">Nilai option id yang dipilih</param>
+    private bool _isInvoking;
+
+    // ini bisa dipanggil dari UnityEvent di Inspector
+    public void OptionSelected(int optionId)
     {
-        OptionId option = (OptionId)_optionId;
-        Debug.Log($"option selected: {option}");
+        if (_isInvoking)
+        {
+            Debug.LogWarning("Invoke sedang berjalan, abaikan panggilan baru.");
+            return;
+        }
+
+        _ = InvokeEventWithDelayAsync((OptionId)optionId, 0.5f);
+    }
+
+    private async Task InvokeEventWithDelayAsync(OptionId optId, float delay)
+    {
+        _isInvoking = true;
+        try
+        {
+            UnityEvent sectionEvent = contentConfiguration[m_currentSectionId]
+                .postEffectByAnser
+                .FirstOrDefault(e => e.answerOptionTarget == optId)
+                ?.onAnsweredEvent;
+
+            await Task.Delay((int)(delay * 1000)); // delay async
+
+            // pastikan di main thread
+            sectionEvent?.Invoke();
+            Debug.Log($"ALUR GAME CONTROLLER: option selected: {optId} has been invoked");
+        }
+        finally
+        {
+            _isInvoking = false;
+        }
+    }
+
+    /// <summary>
+    /// Mengganti panel aktif di dalam ContentConfiguration.
+    /// Semua panel yang sebelumnya aktif akan dimatikan, lalu
+    /// panel baru (_newPanel) akan diaktifkan dan disimpan di m_tempPanelActive.
+    /// </summary>
+    /// <param name="_newPanel">GameObject panel yang ingin diaktifkan.</param>
+    public void ChangePanel(GameObject _newPanel)
+    {
+        ContentSection section = contentConfiguration
+            .FirstOrDefault(s => s.mainPanel == _newPanel);
+
+        if (section == null)
+        {
+            Debug.LogWarning($"ALUR GAME CONTROLLER: ContentSection untuk panel '{_newPanel?.name}' tidak ditemukan.");
+            return;
+        }
+
+        if (m_tempPanelActive.Count > 0)
+        {
+            foreach (var panelActive in m_tempPanelActive)
+            {
+                panelActive.SetActive(false);
+            }
+        }
+
+        m_tempPanelActive.Clear();
+
+        section.mainPanel.SetActive(true);
+
+        GameObject tg = section.mainPanel;
+        m_tempPanelActive.Add(tg);
+
+        m_currentSectionId = contentConfiguration.IndexOf(section);
+    }
+
+    public void AddPanel(GameObject _newPanel)
+    {
+        _newPanel.SetActive(true);
+        m_tempPanelActive.Add(_newPanel);
     }
 }

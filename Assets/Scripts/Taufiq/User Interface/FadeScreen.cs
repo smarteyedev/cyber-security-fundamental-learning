@@ -79,23 +79,42 @@ namespace Smarteye.Character.Behaviour
                 });
         }
 
-        public void StartEffectSOS(Color _imgColor)
+        public void StartEffectSOS(Color imgColor, bool isLoop = false)
         {
-            m_SOSTween?.Kill();
-            fadeCanvas.sortingOrder = -1;
+            if (targetImage == null) return;
 
-            targetImage.color = _imgColor;
-            var c = targetImage.color;
-            c.a = 0f;
-            targetImage.color = c;
+            // Hentikan tween lama
+            m_SOSTween?.Kill();
+            m_SOSTween = null;
+
+            if (fadeCanvas != null) fadeCanvas.sortingOrder = -1;
+
+            // Set awal: warna + alpha 0
+            targetImage.color = new Color(imgColor.r, imgColor.g, imgColor.b, 0f);
+
+            int loops = isLoop ? -1 : 20; // 2 = naik + turun (sekali putaran)
 
             m_SOSTween = targetImage
-                        .DOFade(.5f, 0.5f)
-                        .SetDelay(0f)
-                        .SetEase(Ease.InOutSine)
-                        .SetLoops(-1, LoopType.Yoyo)
-                        .SetAutoKill(false);
-            // .SetUpdate(true);
+                .DOFade(0.5f, 0.8f)
+                .SetEase(Ease.InOutSine)
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetRecyclable(true)
+                .SetLink(gameObject)      // auto cleanup saat GameObject destroy
+                                          // .SetUpdate(true)       // uncomment jika ingin jalan saat timeScale=0
+                .SetAutoKill(!isLoop)     // loop: jangan auto kill; one-shot: auto kill
+                .OnComplete(() =>
+                {
+                    if (!isLoop)
+                    {
+                        // Kembali transparan setelah selesai one-shot
+                        targetImage.color = new Color(imgColor.r, imgColor.g, imgColor.b, 0f);
+                    }
+                });
+        }
+
+        public void StartDefaultEffectSOS()
+        {
+            StartEffectSOS(Color.red, false);
         }
 
         public void StopEffectSOS()

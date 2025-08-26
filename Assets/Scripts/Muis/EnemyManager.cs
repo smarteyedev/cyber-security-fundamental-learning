@@ -322,7 +322,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (fadeScreen != null)
         {
-            fadeScreen.StartEffectSOS(Color.red);
+            fadeScreen.StartEffectSOS(Color.red, true);
         }
     }
 
