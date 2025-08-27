@@ -1,4 +1,5 @@
-﻿using UnityEngine; // Mengimpor namespace dasar Unity
+﻿using UnityEditor;
+using UnityEngine; // Mengimpor namespace dasar Unity
 
 public class PickupNotifier : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PickupNotifier : MonoBehaviour
     public bool aktifkanSaatStart = false; // Opsi untuk mengaktifkan panel saat Start
 
     private Camera kameraUtama; // Referensi internal ke kamera utama di scene
+
+    private bool m_isMechanismActive = false;
 
     void Awake()
     {
@@ -64,6 +67,7 @@ public class PickupNotifier : MonoBehaviour
         // Memeriksa opsi 'aktifkanSaatStart'. Jika true, panel akan diaktifkan segera.
         if (aktifkanSaatStart)
         {
+            m_isMechanismActive = true;
             AktifkanPanelPemberitahuan(); // Panggil fungsi untuk mengaktifkan panel
         }
     }
@@ -72,7 +76,7 @@ public class PickupNotifier : MonoBehaviour
     {
         // Memperbarui posisi dan rotasi panel setiap frame
         // hanya jika panel seharusnya mengikuti pistol dan panelnya aktif
-        if (ikutiPistol && panelPemberitahuan != null && panelPemberitahuan.activeSelf)
+        if (m_isMechanismActive && ikutiPistol && panelPemberitahuan != null && panelPemberitahuan.activeSelf)
         {
             UpdatePosisiDanRotasiPanel();
         }
@@ -114,6 +118,8 @@ public class PickupNotifier : MonoBehaviour
     /// </summary>
     public void AktifkanPanelPemberitahuan()
     {
+        if (!m_isMechanismActive) return;
+
         if (panelPemberitahuan != null)
         {
             panelPemberitahuan.SetActive(true); // Mengaktifkan GameObject panel
@@ -136,5 +142,10 @@ public class PickupNotifier : MonoBehaviour
             panelPemberitahuan.SetActive(false); // Menonaktifkan GameObject panel
             Debug.Log("[PickupNotifier] ❌ Panel dinonaktifkan.");
         }
+    }
+
+    public void SetMechanismState(bool _isActive)
+    {
+        m_isMechanismActive = _isActive;
     }
 }

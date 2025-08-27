@@ -13,6 +13,8 @@ public class PanelManager : MonoBehaviour
     public GameObject pickupNotifier; // Panel UI yang muncul saat pistol di-grab
     public GameObject pistolObject;   // Objek pistol (jika perlu diaktifkan)
 
+    [SerializeField] private PickupNotifier blasterInstruction;
+
     [Header("🎯 Musuh")]
     public GameObject[] semuaMusuh;
 
@@ -102,6 +104,8 @@ public class PanelManager : MonoBehaviour
         {
             Debug.Log("[PanelManager] Semua musuh dikalahkan di Panel Tembak. Otomatis pindah ke Panel Selamat.");
             TampilkanPanel(4); // Tampilkan panel selamat (urutan 4)
+
+            blasterInstruction.SetMechanismState(false);
         }
     }
 

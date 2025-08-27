@@ -21396,7 +21396,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290693875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000026077032}
   m_LocalScale: {x: 0.06339395, y: 0.063393965, z: 0.06339395}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21406,7 +21406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17, y: 1.5577996}
+  m_AnchoredPosition: {x: -24.844706, y: 1.5577996}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &290693879
@@ -21525,8 +21525,8 @@ MonoBehaviour:
   jarakNaikTurun: 0
   durasiNaikTurun: 0
   easingNaikTurun: 4
-  jarakKiriKanan: 2
-  durasiKiriKanan: 5
+  jarakKiriKanan: 1
+  durasiKiriKanan: 7
   easingKiriKanan: 4
   jedaGerakan: 0.5
   mulaiOtomatis: 1
@@ -22742,6 +22742,7 @@ MonoBehaviour:
   panelSelamat: {fileID: 1951761174}
   pickupNotifier: {fileID: 441643043}
   pistolObject: {fileID: 919132147607106235}
+  blasterInstruction: {fileID: 204721002}
   semuaMusuh:
   - {fileID: 786214893}
   - {fileID: 1541464556}
@@ -24041,7 +24042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.1553, y: -9}
+  m_AnchoredPosition: {x: -14, y: -9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &786214896
@@ -24157,7 +24158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c38ce7589ed724f94b4d357b2da7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jarakNaikTurun: 2
+  jarakNaikTurun: 1
   durasiNaikTurun: 5
   easingNaikTurun: 4
   jarakKiriKanan: 0
@@ -25825,16 +25826,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102754311}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.22325005, z: 0, w: 0.9747612}
+  m_LocalPosition: {x: 0, y: 0, z: -9.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1972535325}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 25.8, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.1, y: -4.79}
+  m_AnchoredPosition: {x: 23.5, y: -4.79}
   m_SizeDelta: {x: 30.95, y: 19.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1102754313
@@ -28890,7 +28891,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541464556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000026077032}
   m_LocalScale: {x: 0.06339395, y: 0.063393965, z: 0.06339395}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28900,7 +28901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.946, y: -13.737001}
+  m_AnchoredPosition: {x: -32.790703, y: -13.737001}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1541464560
@@ -29016,7 +29017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c38ce7589ed724f94b4d357b2da7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jarakNaikTurun: 2
+  jarakNaikTurun: 1
   durasiNaikTurun: 5
   easingNaikTurun: 4
   jarakKiriKanan: 0
@@ -30009,7 +30010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35.612, y: -3.2067003}
+  m_AnchoredPosition: {x: -46.5, y: -3.2067003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1818991453
@@ -30128,8 +30129,8 @@ MonoBehaviour:
   jarakNaikTurun: 0
   durasiNaikTurun: 0
   easingNaikTurun: 4
-  jarakKiriKanan: 2
-  durasiKiriKanan: 5
+  jarakKiriKanan: 1
+  durasiKiriKanan: 7
   easingKiriKanan: 4
   jedaGerakan: 0.5
   mulaiOtomatis: 1
@@ -30799,7 +30800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 18.2, y: 0}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1980269273
