@@ -29,11 +29,11 @@ public class PickupNotifier : MonoBehaviour
         // maka akan mencari GameObject dengan nama "Camera_Primary" dan mengatur tagnya.
         if (Camera.main == null)
         {
-            var camObj = GameObject.Find("Camera_Primary");
+            var camObj = GameObject.Find("Camera (head)");
             if (camObj != null)
             {
                 camObj.tag = "MainCamera";
-                Debug.Log("[PickupNotifier] 📸 GameObject 'Camera_Primary' diberi tag 'MainCamera'.");
+                Debug.Log("[PickupNotifier] 📸 GameObject 'Camera (head)' diberi tag 'MainCamera'.");
             }
         }
 

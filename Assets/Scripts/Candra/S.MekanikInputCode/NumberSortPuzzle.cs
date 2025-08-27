@@ -16,9 +16,9 @@ public class NumberSprite
 
 public class NumberSortPuzzle : MonoBehaviour
 {
-    [Header("Pengaturan Scene")]
+    /* [Header("Pengaturan Scene")]
     [Tooltip("Ketik nama scene yang akan dimuat setelah puzzle ini selesai")]
-    public string nextSceneName; // <-- VARIABEL BARU
+    public string nextSceneName; // <-- VARIABEL BARU */
 
     [Header("UI Ikon Gembok")]
     public GameObject lockedIcon;
@@ -200,7 +200,7 @@ public class NumberSortPuzzle : MonoBehaviour
     }
 
     // -- FUNGSI BARU UNTUK PINDAH SCENE --
-    public void LoadNextScene()
+    /* public void LoadNextScene()
     {
         if (!string.IsNullOrEmpty(nextSceneName))
         {
@@ -210,5 +210,5 @@ public class NumberSortPuzzle : MonoBehaviour
         {
             Debug.LogError("Nama Scene Selanjutnya (Next Scene Name) belum diatur di Inspector!");
         }
-    }
+    } */
 }

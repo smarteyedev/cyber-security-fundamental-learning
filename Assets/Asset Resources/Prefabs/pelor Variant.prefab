@@ -118,11 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6a9c28705fe0e4db5cd1d852552501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 50
   targetTag: Enemy
   buttonTag: ButtonTarget
   finalButtonTag: FinalButton
-  sceneToLoadName: NamaSceneTujuan
   target: Environtmen
 --- !u!54 &7899850321510877999
 Rigidbody:
